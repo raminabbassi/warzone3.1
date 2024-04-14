@@ -59,10 +59,10 @@
 }
 
 .testimonial-img {
-    border-radius: 50%;
+    border-radius: 100%;
     margin-bottom: 20px;
-    width: 200px;
-    height: 200px;
+    width: 800px;
+    height: 500px;
 }
 
 .title {
