@@ -1,0 +1,114 @@
+<style>
+    body {
+        margin: 0px;
+        background: #222;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 800;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        float: right;
+    }
+
+    header {
+        background: #55d6aa;
+    }
+
+    header::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .logo {
+        float: left;
+        padding: 10px 0;
+    }
+
+    nav {
+        float: right;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    nav li {
+        display: inline-block;
+        margin-left: 140px;
+        padding-top: 35px;
+        position: relative;
+    }
+
+    nav a {
+        color: #444;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    nav a:hover {
+        color: #000;
+    }
+
+    nav a::before {
+        content: '';
+        display: block;
+        height: 5px;
+        background-color: #444;
+
+        position: absolute;
+        top: 0;
+        width: 0%;
+
+        transition: all ease-in-out 250ms;
+    }
+
+    nav a:hover::before {
+        width: 100%;
+    }
+
+    img {
+        margin: 20px 10px;
+
+    }
+    .UnderRubrik{
+        text-align: center;
+        margin: 50px 20px;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min hemsida</title>
+    <nav class="container">
+        <h1 class="logo"></h1>
+        <div>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="RR.html">Ranked Resurgence</a></li>
+            <li><a href="RM.html">Ranked Multiplayer</a></li>
+        </div>
+    </nav>
+
+</head>
+
+<body>
+    <img src="docs/lmg.jpeg" width="610" height="500" class="img">
+    <img src="docs/mcw.jpeg" width="610" height="500" class="img">
+    <img src="docs/sniper.jpeg" width="610" height="500" class="img">
+    <h2 class="UnderRubrik">Close/Mid Range Range</h2>
+    <img src="docs/arm9.jpeg" width="700" height="500" class="img">
+    <h2 class="UnderRubrik">Short Range</h2>
+    <img src="docs/hrm.jpeg" width="750" height="500" class="img">
+    <img src="docs/ram9.jpeg" width="750" height="500" class="img">
+
+</body>
+
+</html>
