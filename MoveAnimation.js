@@ -1,39 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
     const testimonials = [
         {
-            imgSrc: "img/rpablo.jpg",
+            imgSrc: "rpablo.jpg",
             name: "rpablo loudouts",
             title: "",
             text:""
             
         },
         {
-            imgSrc: "img/arm9.jpeg",
+            imgSrc: "arm9.jpeg",
             name: "Amr9",
             title: "",
             text:""
             
         },
         {
-            imgSrc: "img/hrm.jpeg",
+            imgSrc: "hrm.jpeg",
             name: "Hrm",
             title: "",
             text:""
         },
         {
-            imgSrc: "img/mcw.jpeg",
+            imgSrc: "mcw.jpeg",
             name: "Mcw",
             title: "",
             text:""
         },
         {
-            imgSrc: "img/sniper.jpeg",
+            imgSrc: "sniper.jpeg",
             name: "XRK Stalker",
             title: "",
             text:""
         },
         {
-            imgSrc: "img/ram9.jpeg",
+            imgSrc: "ram9.jpeg",
             name: "Ram9",
             title: "",
             text:""
