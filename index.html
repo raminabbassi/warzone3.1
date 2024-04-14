@@ -1,0 +1,231 @@
+<style>
+    body {
+      margin: 0;
+      background: #222;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 800;
+      overflow-x: hidden;
+  
+    }
+  
+    .containers {
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+      float: right;
+    }
+  
+    header {
+      background: #55d6aa;
+    }
+  
+    header::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  
+    .logo {
+      float: left;
+      padding: 10px 0;
+    }
+  
+    nav {
+      float: right;
+    }
+  
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    nav li {
+      display: inline-block;
+      margin-left: 140px;
+      padding-top: 35px;
+  
+      position: relative;
+    }
+  
+    nav a {
+      color: #444;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+  
+    nav a:hover {
+      color: #000;
+    }
+  
+    nav a::before {
+      content: '';
+      display: block;
+      height: 5px;
+      background-color: #444;
+  
+      position: absolute;
+      top: 0;
+      width: 0%;
+  
+      transition: all ease-in-out 250ms;
+    }
+  
+    nav a:hover::before {
+      width: 100%;
+    }
+  
+  
+  
+    .testimonials-container {
+      display: flex;
+      /* Ändring för att tillåta flexbox */
+      flex-direction: column;
+      /* Stapla vertikalt */
+      align-items: center;
+      /* Centrera innehållet */
+      width: 100%;
+      text-align: center;
+      position: relative;
+      /* För att absolut positionera knapparna i förhållande till denna container */
+      padding: 3rem;
+    }
+  
+    .testimonial-flex-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* Centrera knappar vertikalt i förhållande till testimonial */
+      width: 100%;
+      /* Anpassa efter behov */
+    }
+  
+    .description {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+  
+  
+    .testimonial {
+      min-height: 550px;
+      max-height: 950px;
+      padding: 60px;
+      margin: 20px auto;
+      /* Centrerar testimonial blocket horisontellt */
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Centrerar innehållet vertikalt */
+    }
+  
+    .testimonial-content {
+      margin-top: -2rem;
+    }
+  
+    .nav-button {
+      margin: 0 10rem;
+      /* Lägg till marginal för att separera från testimonial */
+      margin-top: -2.5rem;
+      border: none;
+      background-color: #DA7635;
+      /* Mörk terrakotta för knappar */
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      top: 45%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      font-size: 24px;
+      z-index: 1;
+    }
+  
+    .nav-button:hover {
+      background-color: #C06533;
+      /* Ljusare terrakotta vid hovring */
+    }
+  
+    .prev-button {
+      left: 20%;
+      /* Justera enligt behov */
+    }
+  
+    .next-button {
+      right: 20%;
+      /* Justera enligt behov */
+    }
+  
+    .testimonial-img {
+      
+      margin-bottom: 20px;
+      width: 800px;
+      height: 500px;
+    }
+    .ApiJoke{
+      text-align: center;
+      font-size: 16px;
+      color: aqua;
+    }
+  </style>
+  <!DOCTYPE html>
+  <html lang="sv">
+  
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script/MoveAnimation.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <nav class="containers">
+      <h1 class="logo"></h1>
+      <div>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="RR.html">Ranked Resurgence</a></li>
+        <li><a href="RM.html">Ranked Multiplayer</a></li>
+      </div>
+    </nav>
+  </head>
+  
+  <body>
+    <div class="testimonials-container" id="kundrecensioner">
+      <h2 class="section-title">Klasser</h2>
+      <!-- Flex Container Start -->
+      <div class="testimonial-flex-container"> 
+        <button class="nav-button prev-button">&lt;</button> <!-- Flyttad ut och före testimonial-innehållet -->
+        <div class="testimonial">
+  
+          <div class="testimonial-content" id="testimonial-content">
+            <!-- Dynamic content will be loaded here -->
+          </div>
+        </div>
+        <button class="nav-button next-button">&gt;</button>
+      </div>
+      <!-- Flex Container End -->
+      <p class="ApiJoke" id="apiResults">Loading...</p>
+    </div>
+  
+  </body>
+  
+  </html>
+  <script>
+    var limit = 3;
+    $.ajax({
+        method: 'GET',
+        url: 'https://api.api-ninjas.com/v1/jokes?limit=' + limit,
+        headers: { 'X-Api-Key': 'goF5Kc8pT1OwRwlrFjmy9Q==A6PaGE4R5zXoFIV7'},
+        contentType: 'application/json',
+        success: function(result) {
+            var output = '';
+            for (var i = 0; i < result.length; i++) {
+                output += result[i].joke + '<br>';
+            }
+            $('#apiResults').html(output); // Update the paragraph with the jokes
+        },
+        error: function ajaxError(jqXHR) {
+            console.error('Error: ', jqXHR.responseText);
+            $('#apiResults').text('Failed to fetch data.'); // Display error in the paragraph
+        }
+    });
+    </script>
+  
